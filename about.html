@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>عن الشركة</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img src="image/LOVING HOMES.png" class="corner-logo" alt="logo">
+
+<header>
+<h1>لوفينغ هومز</h1>
+<p>فندق متكامل لرعاية الكلاب في هونج كونج</p>
+</header>
+
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="about.html"> من هي لوفينغ هومز</a>
+<a href="services.html">ماذا نقدم لك</a>
+<a href="packages.html">حزمنا</a>
+<a href="tips.html">نصائح لرعاية الكلاب</a>
+<a href="gallery.html">معرض الصور</a>
+<a href="faq.html">الأسئلة الشائعة</a>
+<a href="contact.html">تواصل مع الفريق</a>
+<div class="accessibility-buttons">
+<button id="increase-font">تكبير النص</button>
+<button id="decrease-font">تصغير النص</button>
+</div>
+</nav>
+
+<div class="container">
+
+<h2>من نحن</h2>
+<p>
+ تم تأسيس شركة لوفينغ هومز في هونج كونج لخدمة الطلبات المتزايد على خدمات الاهتمام بالكلاب بالجودة والمهارة العاليتان (ونحن خلقنا لذلك)
+نعطي كل مالدينا من طاقة وهمة  لــتطوير خدماتنا بشكل مستمر عن طريق تكنولوجيا المعلومات لتبسيط التواصل مع الزبائن 
+واعطاء تجربة فريدة للحجز</p>
+<div class="card">
+<h3>الهدف الذي نسعى من اجله</h3>
+<p>هو ان نصل الى القمة وان نكون افضل اختيار لك وان نبقى على قدر المسؤولية عبر اعطاء خدمات فندقية تلبي الاحتياجات جميعها و تجمع بين الأمان والراحة وايضا الأنشطة الترفيهية مع التأكيد لتواصل متكرر ومنتظم  مع أصحاب الحيوان </p>
+</div>
+<div class="card">
+<h3>رسالتنا</h3>
+<p>احجز الآن وامنح كلبك تجربة لا تُنسى🐕‍🦺🥹</p>
+
+</p>تواصل معنا اليوم ودعنا ننصحك لأفضل خيار📞</p>
+</p>فريقنا جاهز للإجابة عن جميع استفساراتك📝</p>
+</p>لا تؤجل راحة كلبك… تواصل معنا حالاً🥰</p>
+</div>
+
+</div>
+
+<footer>
+  لوفينغ هومز
+</footer>
+
+<script>
+let fontSize = parseInt(localStorage.getItem('fontSize')) || 16;
+document.documentElement.style.fontSize = fontSize + 'px';
+
+document.getElementById('increase-font').addEventListener('click', () => {
+    if (fontSize < 24) {
+        fontSize += 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+
+document.getElementById('decrease-font').addEventListener('click', () => {
+    if (fontSize > 12) {
+        fontSize -= 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+</script>
+
+</body>
+</html>

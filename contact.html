@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>تواصل مع فريقنا</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img src="image/LOVING HOMES.png" class="corner-logo" alt="logo">
+
+<header>
+<h1>لوفينغ هومز</h1>
+<p>فندق متكامل لرعاية الكلاب في هونج كونج</p>
+</header>
+
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="about.html"> من هي لوفينغ هومز</a>
+<a href="services.html">ماذا نقدم لك</a>
+<a href="packages.html">حزمنا</a>
+<a href="tips.html">نصائح لرعاية الكلاب</a>
+<a href="gallery.html">معرض الصور</a>
+<a href="faq.html">الأسئلة الشائعة</a>
+<a href="contact.html">تواصل مع الفريق</a>
+<div class="accessibility-buttons">
+<button id="increase-font">تكبير النص</button>
+<button id="decrease-font">تصغير النص</button>
+</div>
+</nav>
+
+<div class="container">
+
+<h2>تواصل معنا</h2>
+<p>يسعدنا الرد على جميع استفساراتكم وتقديم المشورة المناسبة لاختيار الحزمة الأفضل.</p>
+
+<form id="contactForm">
+<label>اسمك الكامل:</label>
+<input type="text" required>
+
+<label>بريدك الإلكتروني:</label>
+<input type="email" required>
+
+<label>رقم الهاتف:</label>
+<input type="text">
+
+<label>استفسارك:</label>
+<textarea rows="5" required></textarea>
+
+<button type="submit">إرسل استفسارك✏️</button>
+</form>
+
+<p><strong>الهاتف:</strong> لا يوجد حاليا</p>
+<p><strong>البريد الإلكتروني:</strong> lovinghome44@gmail.com</p>
+<p><strong>الموقع:</strong> هونج كونج</p>
+
+</div>
+
+<script>
+document.getElementById('contactForm').addEventListener('submit', function(event) {
+    event.preventDefault(); // منع الإرسال الافتراضي
+    
+    // الحصول على القيم
+    const name = this.elements[0].value;
+    const email = this.elements[1].value;
+    const phone = this.elements[2].value;
+    const message = this.elements[3].value;
+    
+    // التحقق البسيط
+    if (name && email && message) {
+        alert('شكراً لك! تم إرسال استفسارك بنجاح. سنتواصل معك قريباً.');
+        this.reset(); // إعادة تعيين النموذج
+    } else {
+        alert('يرجى ملء جميع الحقول المطلوبة.');
+    }
+});
+</script>
+
+<footer>
+  لوفينغ هومز    
+</footer>
+
+<script>
+let fontSize = parseInt(localStorage.getItem('fontSize')) || 16;
+document.documentElement.style.fontSize = fontSize + 'px';
+
+document.getElementById('increase-font').addEventListener('click', () => {
+    if (fontSize < 24) {
+        fontSize += 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+
+document.getElementById('decrease-font').addEventListener('click', () => {
+    if (fontSize > 12) {
+        fontSize -= 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+</script>
+
+</body>
+</html>

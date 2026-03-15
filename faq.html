@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الأسئلة الشائعة</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img src="image/LOVING HOMES.png" class="corner-logo" alt="logo">
+<header> فندق لوفينغ هومز لرعاية الكلاب </header>
+
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="about.html">من هي لوفينغ هومز</a>
+<a href="services.html">ماذا نقدم لك</a>
+<a href="packages.html">حزمنا</a>
+<a href="tips.html">نصائح لرعاية الكلاب</a>
+<a href="gallery.html">معرض الصور</a>
+<a href="faq.html">الأسئلة الشائعة</a>
+<a href="contact.html">تواصل مع الفريق</a>
+<div class="accessibility-buttons">
+<button id="increase-font">تكبير النص</button>
+<button id="decrease-font">تصغير النص</button>
+</div>
+</nav>
+
+<div class="container">
+<h2>الأسئلة الشائعة</h2>
+<div class="faq">
+<h3>هل يمكنني ترك كلبي عندكم أثناء السفر؟</h3>
+<p>نعم، يمكنك ترك كلبك لدينا وسنهتم به طوال فترة غيابك وكأنه في بيته.</p>
+
+<h3>كيف أعرف أن كلبي سيكون مرتاحًا في الفندق؟</h3>
+<p>نحن نوفر بيئة آمنة ومريحة مع مساحة للعب والراحة، ويشرف فريق مختص على الكلاب طوال الوقت.</p>
+
+<h3>هل يمكنني زيارة كلبي أثناء إقامته لديكم؟</h3>
+<p>نعم، يمكنك زيارته في أوقات محددة يتم الاتفاق عليها مسبقًا.</p>
+
+<h3>ماذا يأكل الكلب أثناء إقامته في الفندق؟</h3>
+<p>نقدم وجبات مناسبة للكلاب، ويمكنك أيضًا إحضار طعام كلبك الخاص إذا رغبت.</p>
+
+<h3>هل تقدمون خدمات تنظيف واستحمام للكلاب؟</h3>
+<p>نعم، نوفر خدمات الاستحمام والتنظيف للحفاظ على نظافة وراحة الكلاب.</p>
+
+<h3>ماذا يحدث إذا مرض كلبي أثناء وجوده عندكم؟</h3>
+<p>سنقوم بالتواصل معك مباشرة، وإذا لزم الأمر سيتم أخذه إلى طبيب بيطري.</p>
+
+<h3>هل الكلاب تلعب مع بعضها أم تبقى منفصلة؟</h3>
+<p>ذلك يعتمد على طبيعة كل كلب، حيث نحرص على راحته وسلامته أولاً.</p>
+
+<h3>هل يجب أن يكون الكلب مطعّمًا قبل الإقامة؟</h3>
+<p>نعم، يجب أن يكون الكلب حاصلًا على التطعيمات الأساسية للحفاظ على سلامة جميع الكلاب.</p>
+
+<h3>كيف يمكنني حجز مكان لكلبي؟</h3>
+<p>يمكنك الحجز بسهولة من خلال الموقع أو التواصل معنا مباشرة.</p>
+
+<h3>هل تهتمون بالكلاب طوال اليوم؟</h3>
+<p>نعم، يتم الاعتناء بالكلاب ومراقبتها باستمرار لضمان راحتها وسلامتها.</p>
+</div>
+</div>
+
+<footer>
+  لوفينغ هومز   
+</footer>
+
+<script>
+let fontSize = parseInt(localStorage.getItem('fontSize')) || 16;
+document.documentElement.style.fontSize = fontSize + 'px';
+
+document.getElementById('increase-font').addEventListener('click', () => {
+    if (fontSize < 24) {
+        fontSize += 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+
+document.getElementById('decrease-font').addEventListener('click', () => {
+    if (fontSize > 12) {
+        fontSize -= 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+</script>
+
+</body>
+</html>

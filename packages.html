@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>الحزم</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<img src="image/LOVING HOMES.png" class="corner-logo" alt="logo">
+
+<header>
+<h1>لوفينغ هومز</h1>
+<p>فندق متكامل لرعاية الكلاب في هونج كونج</p>
+</header>
+
+<nav>
+<a href="index.html">الرئيسية</a>
+<a href="about.html"> من هي لوفينغ هومز</a>
+<a href="services.html">ماذا نقدم لك</a>
+<a href="packages.html">حزمنا</a>
+<a href="tips.html">نصائح لرعاية الكلاب</a>
+<a href="gallery.html">معرض الصور</a>
+<a href="faq.html">الأسئلة الشائعة</a>
+<a href="contact.html">تواصل مع الفريق</a>
+<div class="accessibility-buttons">
+<button id="increase-font">تكبير النص</button>
+<button id="decrease-font">تصغير النص</button>
+</div>
+</nav>
+
+<div class="container">
+
+<h2>الحزم المتوفرة</h2>
+
+<div class="card">
+<h3>الحزمة المميزة⭐👑</h3>
+<p>
+أربع أنشطة يوميا🐶
+</p>
+<p>مساحات عشب خاصة لكلبك🌿</p> 
+ <p>تحديثات وصور يومية📸</p> 
+<p>مكافأة وجوائز حسب الاتفاق مع صاحب الكلب🎖️</p>
+
+<br><button class="book-btn" data-package="الحزمة المميزة">حجز الحزمة</button></div>
+
+<div class="card">
+<h3>الحزمة الكلاسيكية🩵</h3>
+<p>
+ثلاثة أنشطة يوميا
+</p>
+<p>حظيرة لعب داخلية </p> 
+ <p>منطقة للأسترخاء </p> 
+<p>جلسة للحلاقة والتنظيف💈</p>
+
+<br><button class="book-btn" data-package="الحزمة الكلاسيكية">حجز الحزمة</button></div>
+
+<div class="card">
+<h3>الحزمة اليومية</h3>
+<p>
+نشاطين يوميا🐶
+</p>
+<p>حظيرة لعب خارجية </p> 
+ <p>مسار خارجي للرشاقة </p> 
+<p>حفر حفرة في الرمل⌛</p>
+
+<br><button class="book-btn" data-package="الحزمة اليومية">حجز الحزمة</button></div>
+
+<!-- مودال حجز الباقة -->
+<div id="bookingModal" class="modal" aria-hidden="true">
+  <div class="modal-content">
+    <h3>حجز الحزمة</h3>
+    <form id="bookingForm">
+      <label for="pkgName">اسم الحزمة</label>
+      <input type="text" id="pkgName" name="pkgName" readonly>
+      <label for="fullName">الاسم الكامل</label>
+      <input type="text" id="fullName" name="fullName" placeholder="أدخل اسمك الكامل" required>
+      <label for="phone">رقم الهاتف</label>
+      <input type="tel" id="phone" name="phone" placeholder="مثال: 0591234567 أو +970591234567" required>
+      <div class="modal-actions">
+        <button type="button" id="cancelBtn">إلغاء</button>
+        <button type="submit" id="submitBtn">إرسال الحجز</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+<footer>
+  لوفينغ هومز 
+</footer>
+
+<script>
+// Booking modal logic
+document.addEventListener('DOMContentLoaded', function(){
+  const modal = document.getElementById('bookingModal');
+  const pkgNameInput = document.getElementById('pkgName');
+  const fullNameInput = document.getElementById('fullName');
+  const phoneInput = document.getElementById('phone');
+  const bookingForm = document.getElementById('bookingForm');
+  const cancelBtn = document.getElementById('cancelBtn');
+
+  function openModal(packageName){
+    pkgNameInput.value = packageName;
+    fullNameInput.value = '';
+    phoneInput.value = '';
+    modal.style.display = 'flex';
+    modal.setAttribute('aria-hidden','false');
+    fullNameInput.focus();
+  }
+
+  function closeModal(){
+    modal.style.display = 'none';
+    modal.setAttribute('aria-hidden','true');
+  }
+
+  document.querySelectorAll('.book-btn').forEach(btn=>{
+    btn.addEventListener('click', ()=> openModal(btn.dataset.package));
+  });
+
+  cancelBtn.addEventListener('click', closeModal);
+
+  bookingForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const name = fullNameInput.value.trim();
+    const phone = phoneInput.value.trim();
+    if(!name){
+      alert('الرجاء إدخال الاسم الكامل.');
+      fullNameInput.focus();
+      return;
+    }
+    // بسيط: يقبل أرقام، + ومسافات
+    const phoneClean = phone.replace(/\s+/g,'');
+    if(!/^\+?[0-9]{6,15}$/.test(phoneClean)){
+      alert('الرجاء إدخال رقم هاتف صالح (أرقام فقط، مع إمكانية +).');
+      phoneInput.focus();
+      return;
+    }
+
+    // هنا يمكنك إرسال البيانات إلى الخادم أو بريد إلكتروني. حالياً نظهر تأكيد.
+    alert('تم استلام طلب الحجز:\n' + 'الحزمة: ' + pkgNameInput.value + '\nالاسم: ' + name + '\nالهاتف: ' + phone);
+    closeModal();
+  });
+
+  // إغلاق عند الضغط خارج محتوى المودال
+  modal.addEventListener('click', function(e){
+    if(e.target === modal) closeModal();
+  });
+});
+
+// Font size accessibility
+let fontSize = parseInt(localStorage.getItem('fontSize')) || 16;
+document.documentElement.style.fontSize = fontSize + 'px';
+
+document.getElementById('increase-font').addEventListener('click', () => {
+    if (fontSize < 24) {
+        fontSize += 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+
+document.getElementById('decrease-font').addEventListener('click', () => {
+    if (fontSize > 12) {
+        fontSize -= 2;
+        document.documentElement.style.fontSize = fontSize + 'px';
+        localStorage.setItem('fontSize', fontSize);
+    }
+});
+</script>
+
+</body>
+</html>
